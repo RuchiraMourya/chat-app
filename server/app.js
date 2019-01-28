@@ -5,7 +5,6 @@ const wss = new WebSocket.Server({ port: 8989 })
 const users = []
 
 const broadcast = (data, ws) => {
-    console.log(wss.clients);
   wss.clients.forEach((client) => {
     if (client.readyState === WebSocket.OPEN && client !== ws) {
       client.send(JSON.stringify(data))
